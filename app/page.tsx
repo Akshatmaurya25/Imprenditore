@@ -1,135 +1,137 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { Menu, Award, BarChart3, BotIcon as Robot, Mic } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Menu, Award, BarChart3, BotIcon as Robot, Mic } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CountdownTimer } from "@/components/countdown-timer"
-import { MobileNav } from "@/components/mobile-nav"
-import { EventTimeline } from "@/components/event-timeline"
-import { SpeakerCard } from "@/components/speaker-card"
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { CountdownTimer } from "@/components/countdown-timer";
+import { MobileNav } from "@/components/mobile-nav";
+import { EventTimeline } from "@/components/event-timeline";
+import { SpeakerCard } from "@/components/speaker-card";
+import Speakers from "@/sections/Speakers";
 
 export default function HomePage() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   // Event date - May 28, 2025 at 11:00 AM
-  const eventDate = new Date(2025, 4, 28, 11, 0, 0).getTime()
+  const eventDate = new Date(2025, 4, 28, 11, 0, 0).getTime();
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
-        setIsScrolled(true)
+        setIsScrolled(true);
       } else {
-        setIsScrolled(false)
+        setIsScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setMobileNavOpen(false)
-  }
-
-  const speakers = [
-    {
-      name: "Dr. Amelia Chen",
-      role: "Sustainability Expert & CEO",
-      company: "GreenTech Innovations",
-      image: "/speaker-1.png",
-      topic: "The Future of Sustainable Entrepreneurship",
-      description:
-        "Dr. Chen will explore how sustainable practices are reshaping business models and creating new opportunities for entrepreneurs in the green economy. Learn about cutting-edge innovations and strategies for building environmentally responsible ventures.",
-    },
-    {
-      name: "Marcus Johnson",
-      role: "Chief Innovation Officer",
-      company: "EcoSolutions Global",
-      image: "/speaker-2.png",
-      topic: "Innovative Approaches to Environmental Challenges",
-      description:
-        "Marcus brings over 15 years of experience in developing innovative solutions to environmental challenges. His session will cover breakthrough technologies and methodologies that are making a significant impact on sustainability efforts worldwide.",
-    },
-    {
-      name: "Sophia Rodriguez",
-      role: "Founder & Creative Director",
-      company: "Sustainable Designs Co.",
-      image: "/speaker-3.png",
-      topic: "Creativity and Sustainability: A Powerful Combination",
-      description:
-        "Sophia will demonstrate how creative thinking and sustainable practices can work together to produce remarkable results. Her presentation will showcase real-world examples of creative solutions that address environmental concerns while driving business success.",
-    },
-  ]
+    setMobileNavOpen(false);
+  };
 
   const timelineEvents = [
     {
-      time: "09:00 AM",
-      title: "Registration & Welcome Coffee",
-      description: "Check-in and networking opportunity with refreshments",
+      time: "10:30 AM - 12:00 PM",
+      title: "Inauguration Ceremony",
+      description: "Held at RGPV Conference Hall",
       date: "May 28, 2025",
     },
     {
-      time: "10:00 AM",
-      title: "Opening Ceremony",
-      description: "Welcome address and introduction to Imprenditore 4.0",
+      time: "12:00 PM - 01:00 PM",
+      title: "Speaker Session",
+      description: "Held at RGPV Conference Hall",
       date: "May 28, 2025",
     },
     {
-      time: "11:00 AM",
-      title: "Keynote Speaker: Dr. Amelia Chen",
-      description: "The Future of Sustainable Entrepreneurship",
+      time: "11:30 AM - 05:30 PM",
+      title: "Book Fair",
+      description: "Held at KRC",
       date: "May 28, 2025",
     },
     {
-      time: "12:30 PM",
-      title: "Networking Lunch",
-      description: "Connect with fellow attendees over a sustainable lunch",
+      time: "12:00 PM - 04:00 PM",
+      title: "Stock Market Simulation",
+      description: "Held at RGPV Conference Hall",
       date: "May 28, 2025",
     },
     {
-      time: "02:00 PM",
-      title: "Panel Discussion: Innovation & Sustainability",
-      description: "Industry experts discuss the intersection of innovation and environmental responsibility",
+      time: "12:00 PM - 04:30 PM",
+      title: "Start-Up Sprint",
+      description: "Held at KRC Lab",
       date: "May 28, 2025",
     },
     {
-      time: "03:30 PM",
-      title: "Hackathon Kickoff",
-      description: "Teams begin working on sustainable innovation challenges",
+      time: "01:00 PM - 02:00 PM",
+      title: "Lunch Break",
+      description: "Lunch Break",
       date: "May 28, 2025",
     },
     {
-      time: "05:00 PM",
-      title: "Closing Remarks & Networking Reception",
-      description: "Wrap-up and evening networking with refreshments",
+      time: "02:00 PM - 03:00 PM",
+      title: "Sustainability Quiz",
+      description: "Held at KRC/RGPV Conference Hall",
       date: "May 28, 2025",
     },
-  ]
+    {
+      time: "02:00 PM - 04:00 PM",
+      title: "Robo Arena",
+      description: "Held at KRC",
+      date: "May 28, 2025",
+    },
+    {
+      time: "03:00 PM - 04:00 PM",
+      title: "Social Media Sustainability Challenge",
+      description: "Held at KRC",
+      date: "May 28, 2025",
+    },
+    {
+      time: "04:00 PM - 05:00 PM",
+      title: "Valedictory Session",
+      description: "Held at RGPV Conference Hall",
+      date: "May 28, 2025",
+    },
+  ];
 
   const eventStats = [
     { number: "1", label: "Day" },
-    { number: "15+", label: "Speakers" },
-    { number: "500+", label: "Attendees" },
-    { number: "10+", label: "Workshops" },
-  ]
+    { number: "10k+", label: "Prizes" },
+    { number: "50k+", label: "Worth Incentives" },
+    { number: "3+", label: "sessions" },
+  ];
 
   return (
     <div className="relative min-h-screen bg-white font-montserrat">
       {/* Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
+          isScrolled
+            ? "bg-white/90 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
         }`}
       >
         <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -141,7 +143,9 @@ export default function HomePage() {
               height={40}
               className="h-10 w-10"
             />
-            <span className="font-bold text-xl text-green-800">Imprenditore 4.0</span>
+            <span className="font-bold text-xl text-green-800">
+              Imprenditore 4.0
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -164,23 +168,35 @@ export default function HomePage() {
             >
               Features
             </button>
-            <button onClick={() => scrollToSection("faqs")} className="text-green-800 hover:text-green-600 font-medium">
+            <button
+              onClick={() => scrollToSection("faqs")}
+              className="text-green-800 hover:text-green-600 font-medium"
+            >
               FAQs
             </button>
             <Link href="/register">
-              <Button className="bg-green-700 hover:bg-green-800 text-white rounded-full px-6">Register Now</Button>
+              <Button className="bg-green-700 hover:bg-green-800 text-white rounded-full px-6">
+                Register Now
+              </Button>
             </Link>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-green-800" onClick={() => setMobileNavOpen(true)}>
+          <button
+            className="md:hidden text-green-800"
+            onClick={() => setMobileNavOpen(true)}
+          >
             <Menu className="h-6 w-6" />
           </button>
         </div>
       </header>
 
       {/* Mobile Navigation */}
-      <MobileNav isOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} onNavigate={scrollToSection} />
+      <MobileNav
+        isOpen={mobileNavOpen}
+        onClose={() => setMobileNavOpen(false)}
+        onNavigate={scrollToSection}
+      />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -226,8 +242,12 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl md:text-6xl font-bold text-green-800 mb-2">{stat.number}</div>
-                <div className="text-xl text-gray-600 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-4xl md:text-6xl font-bold text-green-800 mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-xl text-gray-600 uppercase tracking-wider">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -244,9 +264,12 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl font-bold text-green-800 mb-2">Event Countdown</h2>
+            <h2 className="text-3xl font-bold text-green-800 mb-2">
+              Event Countdown
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Mark your calendars and get ready for an unforgettable experience at Imprenditore 4.0
+              Mark your calendars and get ready for an unforgettable experience
+              at Imprenditore 4.0
             </p>
           </motion.div>
           <CountdownTimer targetDate={eventDate} />
@@ -273,7 +296,12 @@ export default function HomePage() {
       <section id="about" className="py-20 relative text-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image src="/leaves-background.png" alt="Green Leaves Background" fill className="object-cover" />
+          <Image
+            src="/leaves-background.png"
+            alt="Green Leaves Background"
+            fill
+            className="object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-green-700/90 to-green-900/90"></div>
         </div>
 
@@ -286,13 +314,20 @@ export default function HomePage() {
             className="max-w-3xl mx-auto text-center mb-16"
           >
             <div className="w-24 h-24 mx-auto mb-6">
-              <Image src="/imprenditore-logo-white.svg" alt="Imprenditore Logo" width={96} height={96} />
+              <Image
+                src="/imprenditore-logo-white.svg"
+                alt="Imprenditore Logo"
+                width={96}
+                height={96}
+              />
             </div>
             <h2 className="text-3xl font-bold mb-4">About Imprenditore 4.0</h2>
             <p className="text-lg text-green-100">
-              Imprenditore 4.0 is the flagship event of E-Cell RGPV Bhopal, focused on sustainability and innovative
-              creativity. This event brings together entrepreneurs, innovators, and industry experts to foster a culture
-              of sustainable entrepreneurship and creative problem-solving.
+              Imprenditore 4.0 is the flagship event of E-Cell RGPV Bhopal,
+              focused on sustainability and innovative creativity. This event
+              brings together entrepreneurs, innovators, and industry experts to
+              foster a culture of sustainable entrepreneurship and creative
+              problem-solving.
             </p>
           </motion.div>
 
@@ -324,10 +359,12 @@ export default function HomePage() {
                     <path d="m16 18-4-4-4 4"></path>
                   </svg>
                 </div>
-                <h3 className="mb-3 text-2xl font-bold text-white">Innovation</h3>
+                <h3 className="mb-3 text-2xl font-bold text-white">
+                  Innovation
+                </h3>
                 <p className="text-green-100">
-                  Fostering creative solutions to real-world problems with a focus on sustainability and environmental
-                  impact.
+                  Fostering creative solutions to real-world problems with a
+                  focus on sustainability and environmental impact.
                 </p>
               </div>
             </motion.div>
@@ -358,9 +395,12 @@ export default function HomePage() {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
                 </div>
-                <h3 className="mb-3 text-2xl font-bold text-white">Networking</h3>
+                <h3 className="mb-3 text-2xl font-bold text-white">
+                  Networking
+                </h3>
                 <p className="text-green-100">
-                  Connect with industry leaders, experts, and fellow entrepreneurs to expand your professional network.
+                  Connect with industry leaders, experts, and fellow
+                  entrepreneurs to expand your professional network.
                 </p>
               </div>
             </motion.div>
@@ -389,9 +429,12 @@ export default function HomePage() {
                     <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
                   </svg>
                 </div>
-                <h3 className="mb-3 text-2xl font-bold text-white">Recognition</h3>
+                <h3 className="mb-3 text-2xl font-bold text-white">
+                  Recognition
+                </h3>
                 <p className="text-green-100">
-                  Showcase your ideas and get recognized for your innovative solutions and entrepreneurial spirit.
+                  Showcase your ideas and get recognized for your innovative
+                  solutions and entrepreneurial spirit.
                 </p>
               </div>
             </motion.div>
@@ -400,43 +443,7 @@ export default function HomePage() {
       </section>
 
       {/* Speakers Section */}
-      <section id="speakers" className="py-20 bg-white">
-        <div className="container max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Featured Speakers</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Learn from the best minds in the industry who are leading the way in sustainable innovation and
-              entrepreneurship.
-            </p>
-          </motion.div>
-
-          <div className="flex flex-col gap-8 max-w-3xl mx-auto">
-            {speakers.map((speaker, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <SpeakerCard speaker={speaker} />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button variant="outline" className="border-green-700 text-green-700 hover:bg-green-50 rounded-full px-6">
-              View All Speakers
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* <Speakers/> */}
 
       {/* Timeline Section */}
       <section id="timeline" className="py-20 bg-gray-50">
@@ -448,9 +455,12 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Event Schedule</h2>
+            <h2 className="text-3xl font-bold text-green-800 mb-4">
+              Event Schedule
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Plan your day at Imprenditore 4.0 with our detailed event schedule.
+              Plan your day at Imprenditore 4.0 with our detailed event
+              schedule.
             </p>
           </motion.div>
 
@@ -468,9 +478,12 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Event Features</h2>
+            <h2 className="text-3xl font-bold text-green-800 mb-4">
+              Event Features
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore the exciting activities and competitions that await you at Imprenditore 4.0.
+              Explore the exciting activities and competitions that await you at
+              Imprenditore 4.0.
             </p>
           </motion.div>
 
@@ -481,7 +494,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Card className="h-full border-green-200 hover:border-green-400 transition-colors duration-300">
+              <Card className="h-full border-green-200 hover:border-green-400 bg-green-50 transition-colors duration-300">
                 <CardHeader className="pb-2">
                   <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <Award className="h-6 w-6 text-green-700" />
@@ -490,8 +503,9 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-gray-600">
-                    Participate in our sustainability-focused hackathon with reflection provided for all participants.
-                    Showcase your problem-solving skills and win exciting prizes.
+                    Participate in our sustainability-focused hackathon with
+                    reflection provided for all participants. Showcase your
+                    problem-solving skills and win exciting prizes.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -503,17 +517,20 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="h-full border-green-200 hover:border-green-400 transition-colors duration-300">
+              <Card className="h-full border-green-200 bg-green-50 hover:border-green-400 transition-colors duration-300">
                 <CardHeader className="pb-2">
                   <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <BarChart3 className="h-6 w-6 text-green-700" />
                   </div>
-                  <CardTitle className="text-green-800">Stock Market Simulation</CardTitle>
+                  <CardTitle className="text-green-800">
+                    Stock Market Simulation
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-gray-600">
-                    Experience the thrill of trading in our simulated stock market environment. Learn investment
-                    strategies and financial decision-making in real-time.
+                    Experience the thrill of trading in our simulated stock
+                    market environment. Learn investment strategies and
+                    financial decision-making in real-time.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -525,7 +542,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Card className="h-full border-green-200 hover:border-green-400 transition-colors duration-300">
+              <Card className="h-full border-green-200 bg-green-50 hover:border-green-400 transition-colors duration-300">
                 <CardHeader className="pb-2">
                   <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <Robot className="h-6 w-6 text-green-700" />
@@ -534,8 +551,9 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-gray-600">
-                    Compete in our Robo Arena where the risk is against time. Showcase your robot spinner and compete to
-                    be crowned the best in the arena.
+                    Compete in our Robo Arena where the risk is against time.
+                    Showcase your robot spinner and compete to be crowned the
+                    best in the arena.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -547,17 +565,20 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Card className="h-full border-green-200 hover:border-green-400 transition-colors duration-300">
+              <Card className="h-full border-green-200 bg-green-50 hover:border-green-400 transition-colors duration-300">
                 <CardHeader className="pb-2">
                   <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <Mic className="h-6 w-6 text-green-700" />
                   </div>
-                  <CardTitle className="text-green-800">Speaker Sessions</CardTitle>
+                  <CardTitle className="text-green-800">
+                    Speaker Sessions
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-gray-600">
-                    Gain insights from industry experts and influential speakers who will share their knowledge and
-                    experiences in sustainable innovation and entrepreneurship.
+                    Gain insights from industry experts and influential speakers
+                    who will share their knowledge and experiences in
+                    sustainable innovation and entrepreneurship.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -567,7 +588,10 @@ export default function HomePage() {
       </section>
 
       {/* FAQs Section */}
-      <section id="faqs" className="py-20 bg-gradient-to-br from-green-700 to-green-900 text-white">
+      <section
+        id="faqs"
+        className="py-20 bg-gradient-to-br from-green-700 to-green-900 text-white"
+      >
         <div className="container max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -576,10 +600,19 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <div className="w-24 h-24 mx-auto mb-6">
-              <Image src="/imprenditore-logo-white.svg" alt="Imprenditore Logo" width={96} height={96} />
+              <Image
+                src="/imprenditore-logo-white.svg"
+                alt="Imprenditore Logo"
+                width={96}
+                height={96}
+              />
             </div>
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-green-100 max-w-2xl mx-auto">Find answers to common questions about Imprenditore 4.0.</p>
+            <h2 className="text-3xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-green-100 max-w-2xl mx-auto">
+              Find answers to common questions about Imprenditore 4.0.
+            </p>
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
@@ -623,9 +656,16 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <AccordionItem value={`item-${index}`} className="border-b border-green-700">
-                    <AccordionTrigger className="text-left hover:text-green-300 py-4">{faq.question}</AccordionTrigger>
-                    <AccordionContent className="text-green-100 pb-4">{faq.answer}</AccordionContent>
+                  <AccordionItem
+                    value={`item-${index}`}
+                    className="border-b border-green-700"
+                  >
+                    <AccordionTrigger className="text-left hover:text-green-300 py-4">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-green-100 pb-4">
+                      {faq.answer}
+                    </AccordionContent>
                   </AccordionItem>
                 </motion.div>
               ))}
@@ -639,7 +679,9 @@ export default function HomePage() {
             className="text-center mt-12"
           >
             <p className="text-green-100 mb-4">Still have questions?</p>
-            <Button className="bg-green-500 hover:bg-green-600 text-white rounded-full px-6">Contact Us</Button>
+            <Button className="bg-green-500 hover:bg-green-600 text-white rounded-full px-6">
+              Contact Us
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -653,16 +695,19 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="w-24 h-24 mx-auto mb-6">
-              <Image src="/imprenditore-logo-color.svg" alt="Imprenditore Logo" width={96} height={96} />
-            </div>
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Ready to Join Imprenditore 4.0?</h2>
+            <h2 className="text-3xl font-bold text-green-800 mb-4">
+              Ready to Join Imprenditore 4.0?
+            </h2>
             <p className="text-gray-600 mb-8">
-              Don't miss this opportunity to be part of one of the biggest flagship events focused on sustainability and
-              innovative creativity.
+              Don't miss this opportunity to be part of one of the biggest
+              flagship events focused on sustainability and innovative
+              creativity.
             </p>
             <Link href="/register">
-              <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8">
+              <Button
+                size="lg"
+                className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8"
+              >
                 Register Now
               </Button>
             </Link>
@@ -686,10 +731,14 @@ export default function HomePage() {
                 <span className="font-bold text-xl">Imprenditore 4.0</span>
               </div>
               <p className="text-green-200 mb-4">
-                The flagship event of E-Cell RGPV Bhopal focused on sustainability and innovative creativity.
+                The flagship event of E-Cell RGPV Bhopal focused on
+                sustainability and innovative creativity.
               </p>
               <div className="flex gap-4">
-                <Link href="#" className="text-green-200 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -705,7 +754,10 @@ export default function HomePage() {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </Link>
-                <Link href="#" className="text-green-200 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -718,12 +770,22 @@ export default function HomePage() {
                     strokeLinejoin="round"
                     className="h-5 w-5"
                   >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <rect
+                      x="2"
+                      y="2"
+                      width="20"
+                      height="20"
+                      rx="5"
+                      ry="5"
+                    ></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </Link>
-                <Link href="#" className="text-green-200 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -739,7 +801,10 @@ export default function HomePage() {
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
                 </Link>
-                <Link href="#" className="text-green-200 hover:text-white transition-colors">
+                <Link
+                  href="#"
+                  className="text-green-200 hover:text-white transition-colors"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -796,7 +861,10 @@ export default function HomePage() {
                   </button>
                 </li>
                 <li>
-                  <Link href="/register" className="text-green-200 hover:text-white transition-colors">
+                  <Link
+                    href="/register"
+                    className="text-green-200 hover:text-white transition-colors"
+                  >
                     Register
                   </Link>
                 </li>
@@ -865,11 +933,12 @@ export default function HomePage() {
 
           <div className="border-t border-green-600/30 mt-12 pt-6 text-center">
             <p className="text-green-300">
-              &copy; {new Date().getFullYear()} Imprenditore 4.0 | E-Cell RGPV Bhopal. All rights reserved.
+              &copy; {new Date().getFullYear()} Imprenditore 4.0 | E-Cell RGPV
+              Bhopal. All rights reserved.
             </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
