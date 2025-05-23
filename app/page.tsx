@@ -68,12 +68,6 @@ export default function HomePage() {
       date: "May 28, 2025",
     },
     {
-      time: "11:30 AM - 05:30 PM",
-      title: "Book Fair",
-      description: "Held at KRC",
-      date: "May 28, 2025",
-    },
-    {
       time: "12:00 PM - 04:00 PM",
       title: "Stock Market Simulation",
       description: "Held at RGPV Conference Hall",
