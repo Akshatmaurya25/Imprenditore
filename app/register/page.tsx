@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ArrowLeft } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function RegisterPage() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className="min-h-screen bg-green-50">
@@ -41,15 +41,19 @@ export default function RegisterPage() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
                   <div className="w-32 h-32 relative mb-6">
                     <Image
-                      src="/imprenditore-logo-white.svg"
+                      src="/favicon-white.png"
                       alt="Imprenditore 4.0 Logo"
                       fill
                       className="object-contain"
                     />
                   </div>
-                  <h3 className="text-white text-xl font-bold text-center mb-2">Imprenditore 4.0</h3>
+                  <h3 className="text-white text-xl font-bold text-center mb-2">
+                    Imprenditore 4.0
+                  </h3>
                   <div className="w-16 h-1 bg-green-300 rounded-full mb-4"></div>
-                  <p className="text-green-100 text-sm text-center">May 28, 2025 | 11:00 AM onwards</p>
+                  <p className="text-green-100 text-sm text-center">
+                    May 28, 2025 | 11:00 AM onwards
+                  </p>
                 </div>
 
                 {/* Bottom decorative wave */}
@@ -71,9 +75,12 @@ export default function RegisterPage() {
             </div>
             <div className="p-8 md:w-2/3">
               <div className="text-center mb-8">
-                <h1 className="text-2xl font-bold text-green-800 mb-2">Register for Imprenditore 4.0</h1>
+                <h1 className="text-2xl font-bold text-green-800 mb-2">
+                  Register for Imprenditore 4.0
+                </h1>
                 <p className="text-gray-600">
-                  Complete your registration through our Luma platform to secure your spot at the event.
+                  Complete your registration through our Luma platform to secure
+                  your spot at the event.
                 </p>
               </div>
 
@@ -82,7 +89,9 @@ export default function RegisterPage() {
                   <div className="absolute inset-0 flex items-center justify-center bg-white">
                     <div className="flex flex-col items-center">
                       <div className="h-12 w-12 rounded-full border-4 border-t-green-600 border-b-green-600 border-l-green-600 border-r-transparent animate-spin"></div>
-                      <p className="mt-4 text-green-800">Loading registration form...</p>
+                      <p className="mt-4 text-green-800">
+                        Loading registration form...
+                      </p>
                     </div>
                   </div>
                 )}
@@ -90,26 +99,33 @@ export default function RegisterPage() {
                 {/* Luma Embed */}
                 <div className="w-full h-full">
                   <iframe
-                    src="https://lu.ma/embed/calendar/cal-oyl4rD4EVxzc62A/events"
+                    src="https://lu.ma/embed/calendar/cal-oyl4rD4EVxzc62A/events?lt=light"
                     width="600"
                     height="450"
                     frameBorder="0"
-                    allowFullScreen=""
+                    style={{
+                      border: "1px solid #bfcbda88",
+                      borderRadius: "4px",
+                    }}
+                    allowFullScreen
                     aria-hidden="false"
-                    tabIndex="0"
+                    tabIndex={0}
                     className="w-full h-[500px] border-0"
                     onLoad={() => setIsLoading(false)}
                   ></iframe>
 
-                  {/* This is a placeholder for the Luma embed. In a real implementation, you would use the actual Luma embed code */}
                   {!isLoading && (
                     <div className="p-6 text-center">
                       <p className="text-gray-500 mb-4">
-                        Welcome to the Imprenditore 4.0 registration. Please complete the registration on luma events showed above to secure
-                        your spot at this exclusive sustainability summit. Early registration is recommended as seats
-                        are limited.
+                        Welcome to the Imprenditore 4.0 registration. Please
+                        complete the registration on luma events showed above to
+                        secure your spot at this exclusive sustainability
+                        summit. Early registration is recommended as seats are
+                        limited.
                       </p>
-                      <Button className="bg-green-700 hover:bg-green-800 text-white">Register Now on Luma</Button>
+                      <Button className="bg-green-700 hover:bg-green-800 text-white">
+                        Register Now on Luma
+                      </Button>
                     </div>
                   )}
                 </div>
@@ -141,5 +157,5 @@ export default function RegisterPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

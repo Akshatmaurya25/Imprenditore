@@ -127,7 +127,7 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-white font-montserrat">
       {/* Header */}
-      <header
+      {/* <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-white/90 backdrop-blur-md shadow-sm"
@@ -148,7 +148,7 @@ export default function HomePage() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+
           <nav className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("speakers")}
@@ -181,7 +181,6 @@ export default function HomePage() {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-green-800"
             onClick={() => setMobileNavOpen(true)}
@@ -189,7 +188,7 @@ export default function HomePage() {
             <Menu className="h-6 w-6" />
           </button>
         </div>
-      </header>
+      </header> */}
 
       {/* Mobile Navigation */}
       <MobileNav
@@ -313,14 +312,6 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <div className="w-24 h-24 mx-auto mb-6">
-              <Image
-                src="/imprenditore-logo-white.svg"
-                alt="Imprenditore Logo"
-                width={96}
-                height={96}
-              />
-            </div>
             <h2 className="text-3xl font-bold mb-4">About Imprenditore 4.0</h2>
             <p className="text-lg text-green-100">
               Imprenditore 4.0 is the flagship event of E-Cell RGPV Bhopal,
@@ -599,14 +590,6 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <div className="w-24 h-24 mx-auto mb-6">
-              <Image
-                src="/imprenditore-logo-white.svg"
-                alt="Imprenditore Logo"
-                width={96}
-                height={96}
-              />
-            </div>
             <h2 className="text-3xl font-bold mb-4">
               Frequently Asked Questions
             </h2>
@@ -722,7 +705,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Image
-                  src="/imprenditore-logo-white.svg"
+                  src="/favicon-white.png"
                   alt="Imprenditore 4.0 Logo"
                   width={40}
                   height={40}

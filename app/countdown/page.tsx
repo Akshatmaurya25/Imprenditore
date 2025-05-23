@@ -44,7 +44,7 @@ export default function CountdownPage() {
         <div className="flex flex-col items-center">
           <div className="w-20 h-20 relative mb-4">
             <Image
-              src="/imprenditore-logo-white.svg"
+              src="/favicon-white.png"
               alt="Imprenditore 4.0 Logo"
               fill
               className="object-contain"
