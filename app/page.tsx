@@ -217,6 +217,14 @@ export default function HomePage() {
               <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-white mb-8">
                 LIVE IN BHOPAL | MAY 28, 2025
               </div>
+              <Link href={"/register"}>
+                <Button
+                  size="lg"
+                  className="bg-green-700 hover:bg-green-800 text-white rounded-full px-8"
+                >
+                  Register Now
+                </Button>
+                </Link>
             </motion.div>
           </div>
         </div>

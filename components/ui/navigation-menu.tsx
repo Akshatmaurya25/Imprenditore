@@ -2,8 +2,10 @@ import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
 import { ChevronDown } from "lucide-react"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -125,4 +127,17 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
+}
+
+// Example: Place this in your header or navigation component
+export default function SimpleHeader() {
+  return (
+    <header className="flex items-center justify-end p-4 bg-white shadow">
+      <Link href="/register">
+        <Button className="bg-green-700 hover:bg-green-800 text-white rounded-full px-6">
+          Register Now
+        </Button>
+      </Link>
+    </header>
+  );
 }
